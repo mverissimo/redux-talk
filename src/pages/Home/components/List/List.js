@@ -27,7 +27,7 @@ function List({ handleLoadMore }) {
     shallowEqual
   );
   const characters = useSelector(
-    (state) => Selectors.getByFilter(state.character.list),
+    (state) => Selectors.getByStatus(state.character.list),
     shallowEqual
   );
 
