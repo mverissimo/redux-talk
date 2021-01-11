@@ -1,79 +1,67 @@
-import { Constants } from ".";
+import produce from 'immer';
+
+import { Constants } from '.';
 
 const initialState = {
   list: {
     isRequest: true,
-    status: "all",
+    status: 'all',
     statusById: {},
     idList: {
       all: [],
       alive: [],
       dead: [],
-      unknown: [],
+      unknown: []
     },
-    hasNext: null,
-  },
+    hasNext: null
+  }
 };
 
 export default function reducer(state = initialState, action = {}) {
-  switch (action.type) {
-    case Constants.CHARACTER_GET_ALL:
-      return {
-        ...state,
-        list: {
-          ...state.list,
-          isRequest: true,
-        },
-      };
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case Constants.CHARACTER_GET_ALL:
+        draft.list.isRequest = true;
 
-    case Constants.CHARACTER_GET_ALL_SUCCESS:
-      const statusById = {};
-      const idList = {
-        all: [],
-        alive: [],
-        dead: [],
-        unknown: [],
-      };
+        break;
 
-      action.payload.results.forEach((character) => {
-        statusById[character.id] = character;
-        idList.all.push(character.id);
+      case Constants.CHARACTER_GET_ALL_SUCCESS:
+        draft.list.isRequest = false;
+        draft.list.pages = action.payload.info.pages;
+        draft.list.hasNext = action.payload.info.next;
 
-        if (character.status === "Alive") {
-          idList.alive.push(character.id);
-        }
+        action.payload.results.forEach((character) => {
+          draft.list.idList.all.push(character.id);
+          draft.list.statusById[character.id] = character;
 
-        if (character.status === "Dead") {
-          idList.dead.push(character.id);
-        }
+          if (character.status === 'Alive') {
+            draft.list.idList.alive.push(character.id);
+          }
 
-        if (character.status === "unknown") {
-          idList.unknown.push(character.id);
-        }
-      });
-     
-      return {
-        ...state,
-        list: {
-          ...state.list,
-          isRequest: false,
-          pages: action.payload.info.pages,
-          hasNext: action.payload.info.next,
-          statusById,
-          idList
-        },
-      };
+          if (character.status === 'Dead') {
+            draft.list.idList.dead.push(character.id);
+          }
 
-    case Constants.FILTER_CHARACTERS:
-      return {
-        ...state,
-        list: {
-          ...state.list,
-          status: action.status,
-        },
-      };
+          if (character.status === 'unknown') {
+            draft.list.idList.unknown.push(character.id);
+          }
+        });
 
-    default:
-      return state;
-  }
+        break;
+
+      case Constants.CHARACTER_GET_ALL_FAILURE:
+        draft.list.isRequest = false;
+        draft.list.error = action.error;
+
+        break;
+
+      case Constants.FILTER_CHARACTERS:
+        draft.list.status = action.status;
+
+        break;
+
+      default:
+        return state;
+    }
+  });
 }
