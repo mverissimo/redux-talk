@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/redux-talk/static/js/main.352e4a2a.chunk.js",
-    "main.js.map": "/redux-talk/static/js/main.352e4a2a.chunk.js.map",
+    "main.js": "/redux-talk/static/js/main.af2c4d9e.chunk.js",
+    "main.js.map": "/redux-talk/static/js/main.af2c4d9e.chunk.js.map",
     "runtime-main.js": "/redux-talk/static/js/runtime-main.7ab9da3f.js",
     "runtime-main.js.map": "/redux-talk/static/js/runtime-main.7ab9da3f.js.map",
-    "static/js/2.55e81eb6.chunk.js": "/redux-talk/static/js/2.55e81eb6.chunk.js",
-    "static/js/2.55e81eb6.chunk.js.map": "/redux-talk/static/js/2.55e81eb6.chunk.js.map",
+    "static/js/2.1aa12570.chunk.js": "/redux-talk/static/js/2.1aa12570.chunk.js",
+    "static/js/2.1aa12570.chunk.js.map": "/redux-talk/static/js/2.1aa12570.chunk.js.map",
     "static/js/3.806e8842.chunk.js": "/redux-talk/static/js/3.806e8842.chunk.js",
     "static/js/3.806e8842.chunk.js.map": "/redux-talk/static/js/3.806e8842.chunk.js.map",
     "index.html": "/redux-talk/index.html",
-    "static/js/2.55e81eb6.chunk.js.LICENSE.txt": "/redux-talk/static/js/2.55e81eb6.chunk.js.LICENSE.txt"
+    "static/js/2.1aa12570.chunk.js.LICENSE.txt": "/redux-talk/static/js/2.1aa12570.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7ab9da3f.js",
-    "static/js/2.55e81eb6.chunk.js",
-    "static/js/main.352e4a2a.chunk.js"
+    "static/js/2.1aa12570.chunk.js",
+    "static/js/main.af2c4d9e.chunk.js"
   ]
 }
