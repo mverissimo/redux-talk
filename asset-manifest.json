@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/redux-talk/static/js/main.80533159.chunk.js",
-    "main.js.map": "/redux-talk/static/js/main.80533159.chunk.js.map",
+    "main.js": "/redux-talk/static/js/main.352e4a2a.chunk.js",
+    "main.js.map": "/redux-talk/static/js/main.352e4a2a.chunk.js.map",
     "runtime-main.js": "/redux-talk/static/js/runtime-main.7ab9da3f.js",
     "runtime-main.js.map": "/redux-talk/static/js/runtime-main.7ab9da3f.js.map",
     "static/js/2.55e81eb6.chunk.js": "/redux-talk/static/js/2.55e81eb6.chunk.js",
@@ -14,6 +14,6 @@
   "entrypoints": [
     "static/js/runtime-main.7ab9da3f.js",
     "static/js/2.55e81eb6.chunk.js",
-    "static/js/main.80533159.chunk.js"
+    "static/js/main.352e4a2a.chunk.js"
   ]
 }
