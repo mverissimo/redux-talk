@@ -2,6 +2,7 @@
   "name": "redux-talk",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mverissimo.github.io/redux-talk",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@clarketm/saga-monitor": "^2.0.1"
+    "@clarketm/saga-monitor": "^2.0.1",
+    "gh-pages": "^3.1.0"
   }
 }
