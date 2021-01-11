@@ -22,7 +22,7 @@ const ListItem = memo(({ id }) => {
 });
 
 function List({ handleLoadMore }) {
-  const { isLoading, isRequest } = useSelector(
+  const { isLoading, isRequest, hasNext } = useSelector(
     (state) => state.character.list,
     shallowEqual
   );
@@ -54,7 +54,7 @@ function List({ handleLoadMore }) {
         <Table.Row>
           <Table.Cell />
           <Table.Cell textAlign="right">
-            <Button size="small" isLoading={isRequest} onClick={handleLoadMore}>
+            <Button size="small" isLoading={isRequest} disabled={!hasNext} onClick={handleLoadMore} >
               Load more
             </Button>
           </Table.Cell>
