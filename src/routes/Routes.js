@@ -6,7 +6,7 @@ import { Home } from "../pages/Home";
 
 function Routes() {
   return (
-    <Router>
+    <Router basename="redux-talk">
       <App>
         <Switch>
           <Route exact path="/" component={Home} />
