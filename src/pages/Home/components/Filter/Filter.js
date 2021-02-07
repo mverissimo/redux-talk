@@ -9,33 +9,29 @@ function Filter({ handleFilter }) {
     {
       name: "All",
       value: "all",
-      onClick: handleFilter,
     },
     {
       name: "Alive",
       value: "alive",
-      onClick: handleFilter,
     },
     {
       name: "Dead",
       value: "dead",
-      onClick: handleFilter,
     },
     {
       name: "Unknown",
       value: "unknown",
-      onClick: handleFilter,
     },
   ];
 
   return (
     <Group>
-      {filters.map(({ name, value, onClick }) => (
+      {filters.map(({ name, value }) => (
         <Button
           key={value}
           size="small"
           palette={value === character.list.status ? "primary" : "default"}
-          onClick={() => onClick(value)}
+          onClick={() => handleFilter(value)}
         >
           {name}
         </Button>
