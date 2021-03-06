@@ -7,7 +7,7 @@ import * as api from "../../../services";
 
 function* getAll({ page }) {
   try {
-    const characters = yield call(api.getCharacters, page);
+    let characters = yield call(api.getCharacters, page);
 
     yield put(Actions.getAllSuccess(characters));
   } catch (e) {

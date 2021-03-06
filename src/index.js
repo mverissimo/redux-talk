@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { App } from "./App";
 import configureStore from "./redux/store";
 
-const store = configureStore();
+let store = configureStore();
 
 render(<App store={store} />, document.getElementById("root"));
 

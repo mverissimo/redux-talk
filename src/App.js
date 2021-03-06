@@ -4,7 +4,7 @@ import { Provider as BumbagProvider } from 'bumbag';
 
 import { Routes } from './routes';
 
-export const App = ({ store }) => (
+export let App = ({ store }) => (
   <Provider store={store}>
     <BumbagProvider>
       <Routes />

@@ -2,8 +2,8 @@ import axios from "axios";
 
 const ENDPOINT = "https://rickandmortyapi.com/api/character";
 
-export const getCharacters = async (page) => {
-  const response = await axios
+export let getCharacters = async (page) => {
+  let response = await axios
     .get(ENDPOINT, {
       params: {
         page,
@@ -17,8 +17,8 @@ export const getCharacters = async (page) => {
   return response;
 };
 
-export const getCharacter = async (id) => {
-  const response = await axios
+export let getCharacter = async (id) => {
+  let response = await axios
     .get(`${ENDPOINT}/${id}`)
     .then(({ data }) => data)
     .catch((err) => {

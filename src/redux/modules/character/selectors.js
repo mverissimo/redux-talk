@@ -1,7 +1,7 @@
-export const getById = (state, id) => state.statusById[id];
+export let getById = (state, id) => state.statusById[id];
 
-export const getByStatus = (state) => {
-  const { status, idList, statusById } = state;
+export let getByStatus = (state) => {
+  let { status, idList, statusById } = state;
 
   const currentStatus = idList[status];
   const statusList = [];

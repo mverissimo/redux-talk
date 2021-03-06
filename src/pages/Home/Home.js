@@ -8,18 +8,18 @@ import { Filter } from "./components/Filter";
 import { Actions } from "../../redux/modules/character";
 
 function Home() {
-  const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(1);
+  let dispatch = useDispatch();
+  let [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     dispatch(Actions.getAll(currentPage));
   }, [dispatch, currentPage]);
 
-  const onLoadMore = useCallback(() => {
+  let onLoadMore = useCallback(() => {
     setCurrentPage(currentPage + 1);
   }, [currentPage]);
 
-  const onFilter = useCallback(
+  let onFilter = useCallback(
     (value) => {
       dispatch(Actions.filterCharacters(value));
     },

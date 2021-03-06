@@ -6,22 +6,21 @@ import createSagaMonitor from "@clarketm/saga-monitor";
 import createRootReducer from "./reducers";
 import rootSaga from "./sagas";
 
-export const history = createBrowserHistory();
+export let history = createBrowserHistory();
 
 function configureStoreDev(preloadedState) {
-  const sagaMiddleware = createSagaMiddleware({
+  let sagaMiddleware = createSagaMiddleware({
     sagaMonitor: createSagaMonitor({
       level: "log",
       actionDispatch: true,
     }),
   });
 
-  const composeEnhancer =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  let composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-  const middlewares = [sagaMiddleware];
+  let middlewares = [sagaMiddleware];
 
-  const store = createStore(
+  let store = createStore(
     createRootReducer(),
     preloadedState,
     composeEnhancer(applyMiddleware(...middlewares))
@@ -32,6 +31,6 @@ function configureStoreDev(preloadedState) {
   return store;
 }
 
-const configureStore = configureStoreDev;
+let configureStore = configureStoreDev;
 
 export default configureStore;

@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { Group, Button } from "bumbag";
 
 function Filter({ handleFilter }) {
-  const { character } = useSelector((state) => state);
+  let { character } = useSelector((state) => state);
 
-  const filters = [
+  let filters = [
     {
       name: "All",
       value: "all",

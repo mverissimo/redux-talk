@@ -1,36 +1,36 @@
 import { Constants } from '.';
 
-export const getCharacter = (id) => ({
+export let getCharacter = (id) => ({
   type: Constants.CHARACTER_GET,
   id
 });
 
-export const getCharacterSuccess = (payload) => ({
+export let getCharacterSuccess = (payload) => ({
   type: Constants.CHARACTER_GET_SUCCESS,
   payload
 });
 
-export const getCharacterFailure = (error) => ({
+export let getCharacterFailure = (error) => ({
   type: Constants.CHARACTER_GET_FAILURE,
   error
 });
 
-export const getAll = (page) => ({
+export let getAll = (page) => ({
   type: Constants.CHARACTER_GET_ALL,
   page
 });
 
-export const getAllSuccess = (payload) => ({
+export let getAllSuccess = (payload) => ({
   type: Constants.CHARACTER_GET_ALL_SUCCESS,
   payload
 });
 
-export const getAllFailure = (error) => ({
+export let getAllFailure = (error) => ({
   type: Constants.CHARACTER_GET_ALL_FAILURE,
   error
 });
 
-export const filterCharacters = (status) => ({
+export let filterCharacters = (status) => ({
   type: Constants.FILTER_CHARACTERS,
   status
 });

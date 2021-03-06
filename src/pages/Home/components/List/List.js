@@ -5,8 +5,8 @@ import { Spinner, Table, Button, Tag } from "bumbag";
 import { getColor } from "./utils";
 import { Selectors } from "../../../../redux/modules/character";
 
-const ListItem = memo(({ id }) => {
-  const character = useSelector(
+let ListItem = memo(({ id }) => {
+  let character = useSelector(
     (state) => Selectors.getById(state.character.list, id),
     shallowEqual
   );
@@ -22,11 +22,11 @@ const ListItem = memo(({ id }) => {
 });
 
 function List({ handleLoadMore }) {
-  const { isLoading, isRequest, hasNext } = useSelector(
+  let { isLoading, isRequest, hasNext } = useSelector(
     (state) => state.character.list,
     shallowEqual
   );
-  const characters = useSelector(
+  let characters = useSelector(
     (state) => Selectors.getByStatus(state.character.list),
     shallowEqual
   );
@@ -54,7 +54,12 @@ function List({ handleLoadMore }) {
         <Table.Row>
           <Table.Cell />
           <Table.Cell textAlign="right">
-            <Button size="small" isLoading={isRequest} disabled={!hasNext} onClick={handleLoadMore} >
+            <Button
+              size="small"
+              isLoading={isRequest}
+              disabled={!hasNext}
+              onClick={handleLoadMore}
+            >
               Load more
             </Button>
           </Table.Cell>
