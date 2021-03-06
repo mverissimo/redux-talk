@@ -1,8 +1,7 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Group, Button } from "bumbag";
 
-function Filter({ handleFilter }) {
+function Filter({ onFilter }) {
   let { character } = useSelector((state) => state);
 
   let filters = [
@@ -31,7 +30,7 @@ function Filter({ handleFilter }) {
           key={value}
           size="small"
           palette={value === character.list.status ? "primary" : "default"}
-          onClick={() => handleFilter(value)}
+          onClick={() => onFilter(value)}
         >
           {name}
         </Button>

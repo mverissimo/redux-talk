@@ -1,14 +1,13 @@
-import React, { memo } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { memo } from "react";
+import { shallowEqual, useSelector } from "react-redux";
 import { Spinner, Table, Button, Tag } from "bumbag";
 
 import { getColor } from "./utils";
 import { Selectors } from "../../../../redux/modules/character";
 
 let ListItem = memo(({ id }) => {
-  let character = useSelector(
-    (state) => Selectors.getById(state.character.list, id),
-    shallowEqual
+  let character = useSelector((state) =>
+    Selectors.getById(state.character.list, id)
   );
 
   return (
@@ -21,14 +20,13 @@ let ListItem = memo(({ id }) => {
   );
 });
 
-function List({ handleLoadMore }) {
+function List({ onLoadMore }) {
   let { isLoading, isRequest, hasNext } = useSelector(
     (state) => state.character.list,
     shallowEqual
   );
-  let characters = useSelector(
-    (state) => Selectors.getByStatus(state.character.list),
-    shallowEqual
+  let characters = useSelector((state) =>
+    Selectors.getByStatus(state.character.list)
   );
 
   if (isLoading) {
@@ -58,7 +56,7 @@ function List({ handleLoadMore }) {
               size="small"
               isLoading={isRequest}
               disabled={!hasNext}
-              onClick={handleLoadMore}
+              onClick={onLoadMore}
             >
               Load more
             </Button>

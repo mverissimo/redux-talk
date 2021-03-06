@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { PageContent, Stack } from "bumbag";
 
@@ -15,11 +15,11 @@ function Home() {
     dispatch(Actions.getAll(currentPage));
   }, [dispatch, currentPage]);
 
-  let onLoadMore = useCallback(() => {
+  let handleLoadMore = useCallback(() => {
     setCurrentPage(currentPage + 1);
   }, [currentPage]);
 
-  let onFilter = useCallback(
+  let handlerFilter = useCallback(
     (value) => {
       dispatch(Actions.filterCharacters(value));
     },
@@ -29,8 +29,8 @@ function Home() {
   return (
     <PageContent>
       <Stack>
-        <Filter handleFilter={onFilter} />
-        <List handleLoadMore={onLoadMore} />
+        <Filter onFilter={handlerFilter} />
+        <List onLoadMore={handleLoadMore} />
       </Stack>
     </PageContent>
   );
